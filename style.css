@@ -1,43 +1,134 @@
+/* ==========================================
+   RESET & BASE STYLES
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    background-color: #0D0E12;
-    color: #F3F4F6;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
+  background-color: #0f1015; /* Тёмный фон для всего сайта */
+  color: #000000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
 }
 
-.glass-panel {
-    background: rgba(22, 24, 32, 0.75);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+/* ==========================================
+   HEADER / NAVBAR (Фиксация и фон)
+   ========================================== */
+header, .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background-color: rgba(15, 16, 21, 0.9); /* Тёмный полупрозрачный фон */
+  backdrop-filter: blur(12px); /* Эффект размытия при скролле */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.glass-nav {
-    background: rgba(13, 14, 18, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+/* Навигационные ссылки в шапке */
+.nav-link, 
+header a:not(.btn) {
+  color: #a0a5b5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-.text-gradient-gold {
-    background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #D97706 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.nav-link:hover, 
+header a:not(.btn):hover,
+.nav-link.active {
+  color: #ff9f1c; /* Акцентированный оранжевый */
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
+/* Кнопка "Увійти" */
+.login-btn {
+  color: #a0a5b5 !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-::-webkit-scrollbar-track {
-    background: #0D0E12;
+.login-btn:hover {
+  color: #ffffff !important;
 }
 
-::-webkit-scrollbar-thumb {
-    background: #272A36;
-    border-radius: 4px;
+/* ==========================================
+   MAIN CONTENT & HERO SECTION
+   ========================================== */
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 60px 24px; /* Отступ сверху, чтобы меню не наезжало */
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #F59E0B;
+/* Карточка анонса фильма (Париж, Техас) */
+.hero-card {
+  background-color: #161822;
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
+}
+
+/* ==========================================
+   BUTTONS & BADGES
+   ========================================== */
+/* Кнопка "Забронювати місце" */
+.btn-primary {
+  background: linear-gradient(135deg, #ff9f1c 0%, #f48c06 100%);
+  color: #000000;
+  font-weight: 700;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 159, 28, 0.3);
+}
+
+/* Вторичные кнопки (например, "Трейлер") */
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Табы / Категории под главным блоком */
+.category-tab {
+  color: #8a8f9e;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.category-tab.active {
+  background-color: #ff9f1c;
+  color: #000000;
+  font-weight: 600;
+}
+
+.category-tab:hover:not(.active) {
+  color: #ffffff;
 }
